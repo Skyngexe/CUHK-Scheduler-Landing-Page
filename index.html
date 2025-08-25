@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUHK Scheduler - Streamline Your Academic Planning</title>
+    <link rel="icon" type="image/png" href="https://via.placeholder.com/32?text=CS">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A', // Deep blue for professional tone
+                        secondary: '#3B82F6', // Vibrant blue for accents
+                        accent: '#F3F4F6', // Light gray for backgrounds
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-accent text-gray-900 smooth-scroll">
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed top-0 w-full z-10">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                
+            </div>
+            <div class="space-x-8 font-medium">
+                <a href="#home" class="text-gray-700 hover:text-secondary transition">Home</a>
+                <a href="#features" class="text-gray-700 hover:text-secondary transition">Features</a>
+                <a href="#technical" class="text-gray-700 hover:text-secondary transition">Technical Deep Dive</a>
+                <a href="#download" class="text-gray-700 hover:text-secondary transition">Download</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary to-secondary text-white pt-20">
+        <div class="container mx-auto px-6 text-center fade-in">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">CUHK Scheduler</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Effortlessly plan your academic journey with a powerful, intuitive desktop app designed for CUHK students.</p>
+            <a href="#download" class="bg-white text-primary px-8 py-4 rounded-full font-semibold text-lg hover:bg-secondary hover:text-white transition hover-scale">Join the Beta</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-primary">Why Choose CUHK Scheduler?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-accent p-6 rounded-lg shadow-md hover-scale fade-in">
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-primary">Automated Course Scraping</h3>
+                    <p class="text-gray-600">Fetches course details from CUSIS using concurrent, asynchronous processing for speed and reliability.</p>
+                </div>
+                <div class="bg-accent p-6 rounded-lg shadow-md hover-scale fade-in" style="animation-delay: 0.2s;">
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-primary">Smart Schedule Generation</h3>
+                    <p class="text-gray-600">Generates conflict-free schedules tailored to preferences like avoiding early classes or maximizing free days.</p>
+                </div>
+                <div class="bg-accent p-6 rounded-lg shadow-md hover-scale fade-in" style="animation-delay: 0.4s;">
+                   
+                    <h3 class="text-xl font-semibold mb-3 text-primary">CUSIS Cart Integration</h3>
+                    <p class="text-gray-600">Automatically adds selected courses to the CUSIS shopping cart for seamless enrollment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Deep Dive Section -->
+    <section id="technical" class="py-24 bg-accent">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-primary">Technical Deep Dive</h2>
+            <div class="prose max-w-none fade-in">
+                <h3 class="text-2xl font-semibold mb-4 text-primary">Technology Stack</h3>
+                <p class="mb-4">
+                    <img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/main/icons/rust.png" alt="Rust Logo" class="inline-block h-10 mr-4">
+                    <img src="https://raw.githubusercontent.com/slint-ui/slint/master/logo/MadeWithSlint-logo-light.svg" alt="Slint Logo" class="inline-block h-10 mr-4">
+                </p>
+                <ul class="list-disc pl-6 text-gray-700">
+                    <li><strong>Rust</strong>: High-performance, memory-safe backend with concurrency for efficient processing.</li>
+                    <li><strong>Slint</strong>: Responsive, cross-platform GUI for intuitive user interaction.</li>
+                    <li><strong>Tokio</strong>: Asynchronous scraping and task management for fast data retrieval.</li>
+                    <li><strong>Thirtyfour</strong>: Reliable WebDriver automation for CUSIS interaction.</li>
+                    <li><strong>Consumer-Producer Threading</strong>: Thread-safe communication between Slint frontend and Rust backend using Rust’s channels.</li>
+                    <li><strong>Geckodriver & Firefox</strong>: Robust web scraping with automated setup.</li>
+                </ul>
+
+                <h3 class="text-2xl font-semibold mb-4 mt-8 text-primary">Design Decisions</h3>
+                <p class="text-gray-700"><strong>Single WebDriver</strong>: Chosen to minimize resource usage and simplify session management, ensuring efficiency for a single-user desktop app.</p>
+                <p class="text-gray-700"><strong>CLI to GUI Transition</strong>: Evolved from a CLI tool to a Slint-based GUI to enhance accessibility for all CUHK students.</p>
+
+                <h3 class="text-2xl font-semibold mb-4 mt-8 text-primary">Scheduling Algorithm</h3>
+                <p class="text-gray-700">Employs recursive backtracking with scoring metric to generate optimized, conflict-free schedules based on user preferences.</p>
+
+                <h3 class="text-2xl font-semibold mb-4 mt-8 text-primary">Security</h3>
+                <p class="text-gray-700">Runs locally, feeding credentials directly to the CUSIS portal without storage or server-side processing, ensuring user privacy and security.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="py-24 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-12 text-primary">Join the CUHK Scheduler Beta</h2>
+            <p class="text-lg mb-8 text-gray-600 max-w-2xl mx-auto">Be the first to experience CUHK Course Scheduler. Sign up for our closed beta starting late August 2025.</p>
+            <div class="mb-8">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSetWcxwJ7vTt-c4z1suHSbsX7mZWlaIhSi0o2io5IuvpWNVhw/viewform?usp=dialog" class="bg-secondary text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-primary transition hover-scale">Sign Up for Closed Beta</a>
+            </div>
+            <p class="text-lg mb-8 text-gray-600">Full release in October 2025. Stay tuned!</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-accent p-6 rounded-lg shadow-md hover-scale fade-in">
+                    <img src="https://raw.githubusercontent.com/ngeenx/operating-system-logos/master/src/64x64/WIN.png" alt="Windows Icon" class="mx-auto mb-4 h-12">
+                    <h3 class="text-xl font-semibold mb-2 text-primary">Windows</h3>
+                    <p class="text-gray-600">Available in October 2025</p>
+                </div>
+                <div class="bg-accent p-6 rounded-lg shadow-md hover-scale fade-in" style="animation-delay: 0.2s;">
+                    <img src="https://raw.githubusercontent.com/ngeenx/operating-system-logos/master/src/64x64/MAC.png" alt="macOS Icon" class="mx-auto mb-4 h-12">
+                    <h3 class="text-xl font-semibold mb-2 text-primary">macOS</h3>
+                    <p class="text-gray-600">Available in October 2025</p>
+                </div>
+                <div class="bg-accent p-6 rounded-lg shadow-md hover-scale fade-in" style="animation-delay: 0.4s;">
+                    <img src="https://raw.githubusercontent.com/ngeenx/operating-system-logos/master/src/64x64/LIN.png" alt="Linux Icon" class="mx-auto mb-4 h-12">
+                    <h3 class="text-xl font-semibold mb-2 text-primary">Linux</h3>
+                    <p class="text-gray-600">Available in October 2025</p>
+                </div>
+            </div>
+            <p class="mt-8 text-gray-600">Follow progress on <a href="https://github.com/Skyngexe/CUHKScheduler" class="text-secondary hover:underline">GitHub</a></p>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-24 bg-accent">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-primary">Roadmap</h2>
+            <div class="space-y-6 max-w-3xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md hover-scale fade-in">
+                    <h3 class="text-xl font-semibold mb-2 text-primary">Closed Beta (Early September 2025)</h3>
+                    <p class="text-gray-600">Limited release to selected CUHK students for testing core features and gathering feedback.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover-scale fade-in" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-semibold mb-2 text-primary">Feedback Integration (Middle September 2025)</h3>
+                    <p class="text-gray-600">Refine UI, fix bugs, and enhance features based on beta tester feedback.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover-scale fade-in" style="animation-delay: 0.4s;">
+                    <h3 class="text-xl font-semibold mb-2 text-primary">Open Beta (Early October 2025)</h3>
+                    <p class="text-gray-600">Expand access for final testing, with a launch video and new features like schedule previews.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover-scale fade-in" style="animation-delay: 0.6s;">
+                    <h3 class="text-xl font-semibold mb-2 text-primary">General Release (Late October 2025)</h3>
+                    <p class="text-gray-600">Launch the stable version for all CUHK students.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4">&copy; 2025 CUHK Course Scheduler. All rights reserved.</p>
+            <div class="space-x-6">
+                <a href="privacy.html" class="text-gray-200 hover:text-white transition">Privacy</a>
+                <a href="terms.html" class="text-gray-200 hover:text-white transition">Terms</a>
+                <a href="mailto:skyng200424@gmail.com" class="text-gray-200 hover:text-white transition">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
